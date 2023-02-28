@@ -1,3 +1,6 @@
+# Source: https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidence.ps1
+# This code has been tweaked for the cloud research paper
+
 Param(
     # Add when there are multiple resource groups, for this lab only one resource group is used
     # [Parameter(Mandatory = $true)]
