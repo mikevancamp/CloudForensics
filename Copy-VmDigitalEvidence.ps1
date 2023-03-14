@@ -67,18 +67,6 @@ $hashfull = Invoke-Expression -Command "sha256sum $diskpath"
 $hash = $hashfull.split(" ")[0]
 Write-Output "Computed SHA-256: $hash"
 
-# # #################### Copy the OS BEK to the SOC Key Vault  ###################################
-# # $BEKurl = $osdisk.EncryptionSettingsCollection.EncryptionSettings.DiskEncryptionKey.SecretUrl
-# # Write-Output "#################################"
-# # Write-Output "OS Disk Encryption Secret URL: $BEKurl"
-# # Write-Output "#################################"
-# # if ($BEKurl) {
-# #     $sourcekv = $BEKurl.split("/")
-# #     $BEK = Get-AzKeyVaultSecret -VaultName $sourcekv[2].split(".")[0] -Name $sourcekv[4] -Version $sourcekv[5]
-# #     Write-Output "Key value: $BEK"
-# #     Set-AzKeyVaultSecret -VaultName $destKV -Name $snapshotName -SecretValue $BEK.SecretValue -ContentType "BEK" -Tag $BEK.Tags
-# # }
-
 ######## Copy the OS disk hash value in key vault and delete disk in file share ##################
 Write-Output "#################################"
 Write-Output "OS disk - Put hash value in Key Vault"
